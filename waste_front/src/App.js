@@ -12,7 +12,10 @@ import ViewShowroom from './components/ViewShowroom';
 import ShowroomAdmin from './components/ShowroomAdmin';
 import ContactDelete from './components/ContactDelete';
 import UpdateShowroom from './components/UpdateShowroom';
+//tost message
+import { ToastContainer, toast } from 'react-toastify';
 
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
@@ -31,6 +34,7 @@ function App() {
     <BrowserRouter>
 
         <Header/>
+        <ToastContainer />
         
         <Routes>
           <Route exact path="/" element={<Home/>} />             
