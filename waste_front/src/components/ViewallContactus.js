@@ -5,7 +5,22 @@ import jsPDF from "jspdf";
 import { Link } from "react-router-dom";
 //generate pdf-----------------------------
 
-      
+       let docToPrint = React.createRef();
+
+       const printDocument = () => {
+         const input = docToPrint.current;
+         html2canvas(input).then(canvas => {
+           const imgData = canvas.toDataURL("image/png");
+           const pdf = new jsPDF({
+             orientation: "landscape",
+             unit: "px",
+             format: [600, 900]
+           });
+           pdf.addImage(imgData, "JPEG", 0, 0);
+           pdf.save("Contact_us.pdf");
+         });
+       };
+     
        //end generate pdf-----------------------------
 
 
@@ -16,7 +31,21 @@ export default function ViewallContactus() {
 
     //generate pdf-----------------------------
 
-   
+    let docToPrint = React.createRef();
+
+    const printDocument = () => {
+      const input = docToPrint.current;
+      html2canvas(input).then(canvas => {
+        const imgData = canvas.toDataURL("image/png");
+        const pdf = new jsPDF({
+          orientation: "landscape",
+          unit: "px",
+          format: [600, 900]
+        });
+        pdf.addImage(imgData, "JPEG", 0, 0);
+        pdf.save("feedback list.pdf");
+      });
+    };
   
     //end generate pdf-----------------------------
    
@@ -37,6 +66,7 @@ export default function ViewallContactus() {
 
 
     //delete contact us
+    
     async function removeContactInfo(id) {
         try {
             console.log("url " + `http://localhost:9090/contactus/delete/${id}`);
