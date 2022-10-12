@@ -18,12 +18,20 @@ export default function AddContactus(){   //function names capital denna nthnm w
       e.preventDefault();
       
 
-      const newContactus={
-        cname,
-        email,
-        contact,
-        message}
+      // const newContactus={
+      //   cname,
+      //   email,
+      //   contact,
+      //   message}
                 
+
+       var paylod = {
+        "cname" : cname,
+        "email" : email,
+        "contact" : contact,
+        "message" : message
+       }
+       
 
         if(cname.length == 0 ||
           email.length == 0 ||
@@ -34,7 +42,7 @@ export default function AddContactus(){   //function names capital denna nthnm w
         
       
 
-       axios.post("http://localhost:9090/contactus/add",newContactus).then(()=>{
+       axios.post("http://localhost:9090/contactus/add",paylod).then(()=>{
          alert("Contactus Added")
          setName("");
          setEmail("");
