@@ -5,7 +5,7 @@ const cors = require("cors");
 import 'dotenv/config';
 import logger from './utils/logger';
 import { connect } from './utils/database.connection';
-
+var bodyParser = require('body-parser');
 
 var multer = require('multer');
 const path = require('path');
@@ -29,7 +29,7 @@ const app = express();
 const PORT = process.env.PORT || "9090";
 
 app.use(cors());
-// app.use(express.json({ limit: "20mb" }));
+app.use(bodyParser.json());
 app.use('/src/assert',express.static('./src/assert'));
 app.get("/", (req, res, next) => {
     res.send("<h2>test 1 </h2>");

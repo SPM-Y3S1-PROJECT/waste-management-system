@@ -1,32 +1,54 @@
 
 import './App.css';
-import Slidebar from './components/slidebar';
-import Header from './components/header';
-import Footer from './components/footer';
-import Requestform  from'./components/requestform'
-import Category from './components/categoryin';
-import SubCategory from './components/subcategoryin';
-import { BrowserRouter as Router,Routes, Route,  } from 'react-router-dom';
+import AddContactus from './components/AddContactus';
+import Home from './components/Home';
+import Header from './components/Header';
+//import { BrowserRouter, Route, Switch } from 'react-router-dom';
+//import { Routes, Router, Route, Outlet, Link } from "react-router-dom";
+import { BrowserRouter, Route, Routes, } from 'react-router-dom';
+import ViewallContactus from './components/ViewallContactus';
+import AddShoroomitem from './components/AddShowroomitem';
+import ViewShowroom from './components/ViewShowroom';
+import ShowroomAdmin from './components/ShowroomAdmin';
+import ContactDelete from './components/ContactDelete';
+import UpdateShowroom from './components/UpdateShowroom';
+
+
+
+
 
 function App() {
-    return ( 
-       
-    <div className = "App" >  
-   <Router>
- 
-<Header/>
-     <Slidebar/>
+
+        
+
+    return (
+
+      
+
+//----------------------search eke---------------
     
-      <Routes>
-          <Route path='/register' element={<Requestform />} />
-          <Route path='/category' element={<Category />} />
-          <Route path='/subcategory' element={<SubCategory />} />
-          
-      </Routes>
-      <Footer/>
-    </Router>
-        </div >
        
+    <BrowserRouter>
+
+        <Header/>
+        
+        <Routes>
+          <Route exact path="/" element={<Home/>} />             
+          <Route path="/add" element={<AddContactus/>} />
+          <Route path="/view" element={<ViewallContactus/>} />
+          <Route path="/addshow" element={<AddShoroomitem/>} />
+          <Route path="/showuser" element={<ViewShowroom/>} />
+          <Route path="/showadmin" element={<ShowroomAdmin/>} />
+          
+          <Route path="/delete/:id" element={<ContactDelete/>} />
+          
+          <Route path="/updateshow/:id" element={<UpdateShowroom/>} />
+
+          
+          
+        </Routes>
+    </BrowserRouter>
+    
     );
 
 }
