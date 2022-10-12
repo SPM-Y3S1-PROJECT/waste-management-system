@@ -2,6 +2,12 @@ import React,{useState} from "react" //functional component ekk me add krnne
 import axios from "axios";
 import { NavLink, renderMatches } from "react-router-dom";
 
+//tost message
+import { ToastContainer, toast } from 'react-toastify';
+
+import 'react-toastify/dist/ReactToastify.css';
+
+
 export default function AddContactus(){   //function names capital denna nthnm wada nthiwey
 
 
@@ -43,7 +49,12 @@ export default function AddContactus(){   //function names capital denna nthnm w
       
 
        axios.post("http://localhost:9090/contactus/add",paylod).then(()=>{
-         alert("Contactus Added")
+          //alert("Contactus Added")
+          toast.success("Successfully update info !", {
+            position: toast.POSITION.TOP_RIGHT
+  
+  
+          });
          setName("");
          setEmail("");
          setContact("");
