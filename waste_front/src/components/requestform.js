@@ -1,6 +1,8 @@
 import React, { useState,useEffect } from "react"
 import axios from "axios";
+import { ToastContainer, toast } from 'react-toastify';
 
+import 'react-toastify/dist/ReactToastify.css';
 export default function Requestform(){
 
 
@@ -35,13 +37,34 @@ export default function Requestform(){
        const newRqform ={name,Contactnumber,address,Categoryname,SubCategoryname,approximatewaight,description}
        //error
 if(name.length==0||address.length==0||SubCategoryname.length==0||approximatewaight.length==0||description.length==0||Contactnumber.length==0){
+  toast.error(" please fill form details !", {
+    position: toast.POSITION.TOP_RIGHT
+
+
+  });
   setError(true);
  }
 
        
        console.log(newRqform);
       
-       axios.post("http://localhost:9090/Requestform/add",newRqform).then(()=> {alert("formm Send")}).catch((err)=>{alert(err)})
+       axios.post("http://localhost:9090/Requestform/add",newRqform).then(()=> {
+        
+        toast.success("Successfully Send info !", {
+          position: toast.POSITION.TOP_RIGHT
+
+
+        });
+      //  alert("formm Send")
+      })
+       .catch((err)=>{
+        toast.success("Successfully Send info !", {
+          position: toast.POSITION.TOP_RIGHT
+
+
+        });
+        
+        alert(err)})
 
      }async function selectCategory(cat) {
         setCatogy(cat);

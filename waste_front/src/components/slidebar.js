@@ -6,7 +6,7 @@ function Slidebar(){
       
         <div className="wrapper">
         <input type="checkbox" id="btn" hidden/>
-        <label for="btn" className="menu-btn">
+        <label htmlFor="btn" className="menu-btn">
           <i className="fas fa-bars"></i>
           <i className="fas fa-times"></i>
         </label>
@@ -18,7 +18,7 @@ function Slidebar(){
             <li><a href="/category"><i className="fas fa-sliders-h"></i> category</a></li>
             <li><a href="/subcategory"><i className="fas fa-address-book"></i>sub category</a></li>
           
-        
+            <li><a href="/report"><i ></i>report</a></li>
            
           </ul>
         </nav>

@@ -8,10 +8,12 @@
 .wrapper{
   height: 100%;
   width: 300px;
+
   position: relative;
 }
 
 .main-wrapper{
+  
 
 margin-top: 50px;
 }
@@ -48,6 +50,12 @@ margin-top: 50px;
   justify-content: center;
   transition: all 0.3s ease;
 }
+.container{
+  margin-top: 50px;
+  padding: 10px;;
+  margin-left:20%;
+ 
+}
 #btn:checked ~ .menu-btn{
   left: 247px;
 }
@@ -74,7 +82,8 @@ color: red;
 #sidebar{
   position: fixed;
   background: #404040;
-  height: 100%;
+  height: 80%;
+
   width: 270px;
   overflow: hidden;
   left: -270px;
@@ -178,6 +187,7 @@ footer {
   padding: 7em 0; }
 
 .footer-07 {
+  margin-top: 30vh;
   background: #121212; }
   .footer-07 a {
     color: #a3de83; }
