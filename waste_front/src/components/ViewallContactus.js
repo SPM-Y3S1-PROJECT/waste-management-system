@@ -36,8 +36,20 @@ export default function ViewallContactus() {
 
 
 
-    //delete categories
-    
+    //delete contact us
+    async function removeContactInfo(id) {
+        try {
+            console.log("url " + `http://localhost:9090/contactus/delete/${id}`);
+            await axios.delete(`http://localhost:9090/contactus/delete/${id}`).then((response) => {
+                alert("succesfully delete " + JSON.stringify(response));
+                callingConatactInfoAPI();
+            }).catch((err) => {
+                console.log("error " + err);
+            });
+        } catch (error) {
+            console.log("error happen when delete cat info " + error);
+        }
+    }
 
 
 
@@ -162,7 +174,9 @@ export default function ViewallContactus() {
 
                                     
                                     
-                                    
+                                    <td><button className="btn btn-danger"  onClick={()=>{ removeContactInfo(rowContact._id);}}>
+                                        <i class="fa fa-trash" aria-hidden="true">
+                                            </i></button></td>
 
                                             
                                     
