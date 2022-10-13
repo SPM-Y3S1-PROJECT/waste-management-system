@@ -22,9 +22,14 @@ router.route("/add").post((req, res) => {
         phoneNumber,
         password
     })
-    newuser.save().then(() => {
-        res.json("User added")
 
+
+    //save user and return json
+    
+
+    newuser.save().then(() => {
+        res.json(newuser._id)
+        console.log(newuser._id)
     }).catch((err) => {
         console.log(err);
     })
