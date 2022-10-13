@@ -20,9 +20,9 @@ export default class Report extends Component {
     
     retrieveAdmins(){
         axios.get("http://localhost:9090/admin/").then(res =>{
-            if(res.data.success){
+            if(res.data){
                 this.setState({
-                    admins:res.data.existingAdmins
+                    admins:res.data
                 });
 
                 console.log(this.state.admins);
@@ -47,8 +47,8 @@ export default class Report extends Component {
         const searchKey = e.currentTarget.value;
 
         axios.get("http://localhost:9090/admin/").then(res =>{
-            if(res.data.success){
-                this.filterData(res.data.existingadmins, searchKey);
+            if(res.data){
+                this.filterData(res.data, searchKey);
             }
         });
 
