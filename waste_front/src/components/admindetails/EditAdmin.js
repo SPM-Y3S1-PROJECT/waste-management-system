@@ -1,5 +1,5 @@
 import axios from 'axios'
-import React, { useContext, useEffect, useState ,
+import React, { useContext, useEffect, useState 
     // useNavigate
 } from 'react'
 import {
@@ -8,7 +8,7 @@ import {
     Route, Redirect,
     // Navigate
   } from "react-router-dom";
-import { NavLink, useParams} from 'react-router-dom'
+import { NavLink, useParams,useNavigate} from 'react-router-dom'
 import { updatedata } from './context/ContextProvider'
 
 
@@ -17,7 +17,7 @@ const EditAdmin = () => {
 
    const {setUPdata} = useContext(updatedata)
 
-//    const navigate = useNavigate("");
+   const navigate = useNavigate("");
 
     const [inpval, setINP] = useState({
        name:"",
@@ -54,14 +54,14 @@ const EditAdmin = () => {
         });
 
         const data = await res.json();
-        console.log(data.admins);//must be change
+        console.log(data.admin);//must be change
         
 
         if (res.status === 422 || !data) {
             console.log("error ");
 
         } else {
-            setINP(data.admins)//must be change
+            setINP(data.admin)//must be change
             console.log("get data");
 
         }
@@ -73,7 +73,7 @@ const EditAdmin = () => {
     }, []);
 
 
-    const updateAdmin = async(e)=>{
+    const updateuser = async(e)=>{
         e.preventDefault();
 
         const {name,email,address,phoneNumber} = inpval;
@@ -94,7 +94,7 @@ const EditAdmin = () => {
         if(res2.status === 422 || !data2){
             alert("fill the data");
         }else{
-            // navigate("/viewA")
+            navigate("/view")
             setUPdata(data2);
         }
 
@@ -126,27 +126,27 @@ const EditAdmin = () => {
                         className="inputcell"
                         name="Name"
                         placeholder="Enter your name"
-                        // value={inpval.name}
+                        value={inpval.name}
                         onChange={setdata}/>
                     </div>
 
                     <div className="form-group" style={{marginBottom:'15px'}}>
                         <label style={{marginBottom:'5px'}}>Email Address :</label>&nbsp;<br></br>
-                        <input type="email"
+                        <input type="text"
                         className="inputcell"
                         name="email"
                         placeholder="Enter email address"
-                        // value={inpval.email}
+                        value={inpval.email}
                         onChange={setdata}/>
                     </div>
 
-                    <div className="form-group1" style={{marginBottom:'15px'}}>
+                    <div className="form-group" style={{marginBottom:'15px'}}>
                         <label style={{marginBottom:'5px'}}>Address :</label>&nbsp;<br></br>
                         <input type="text"
                         className="inputcell"
                         name="address"
                         placeholder="Enter address"
-                        // value={inpval.address}
+                        value={inpval.address}
                         onChange={setdata}/>
                     </div>
 
@@ -156,13 +156,13 @@ const EditAdmin = () => {
                         className="inputcell"
                         name="phoneNumber"
                         placeholder="Enter contact number"
-                        // value={inpval.phoneNumber}
+                        value={inpval.phoneNumber}
                         onChange={setdata}/>
                     </div>
 
                   
 
-                    <button className="btn btn-success" type="submit" style={{marginTop:'15px'}} onClick={updateAdmin} >
+                    <button className="btn btn-success" type="submit" style={{marginTop:'15px'}} onClick={updateuser} >
                         <i className="far fa-check-square"></i>
                         &nbsp; Save
                     </button>

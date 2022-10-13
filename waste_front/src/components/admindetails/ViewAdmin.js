@@ -54,8 +54,8 @@ class ViewAdmin extends Component {
         const searchKey = e.currentTarget.value;
 
         axios.get("http://localhost:9090/admin").then(res =>{
-            if(res.data.success){
-                this.filterData(res.data.existingAdmins, searchKey);
+            if(res.data){
+                this.filterData(res.data, searchKey);
             }
         });
 
@@ -69,7 +69,7 @@ class ViewAdmin extends Component {
                     <nav className="prmenu">
                         <ul>
                             <li><a href="/material-home"><i class="fa-solid fa-house"></i> Home</a></li>                    
-                            <li><a href="/add-machinery"><i class="fa-solid fa-circle-plus"></i> Add Machinery</a></li>
+                            <li><a href="/report"><i class="fa-solid fa-circle-plus"></i> Report</a></li>
                             <li><a href="/view"><i class="fa-solid fa-list"></i> List of Users</a></li>
                         </ul>
                     </nav>       
