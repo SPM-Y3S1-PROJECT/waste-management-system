@@ -59,7 +59,7 @@ function AddAdmin(){
 
                 <div className="form-group">
                     <label for="email">Email Address :</label>&nbsp;<br></br>
-                    <input type="email" className="inputcell" id="email" placeholder="Enter email address" onChange={(e) =>{
+                    <input type="text" className="inputcell" id="email" placeholder="Enter email address" onChange={(e) =>{
 
                         setEmail(e.target.value);
 
@@ -96,3 +96,4 @@ function AddAdmin(){
     )
 }
 export default AddAdmin;
+
