@@ -11,19 +11,14 @@ router.route("/add").post((req, res) => {
     const name = req.body.name;
     const Contactnumber = Number(req.body.Contactnumber);
     const address = req.body.address;
-    const Categoryname=req.body.Categoryname;
-    const SubCategoryname=req.body.SubCategoryname;
     const approximatewaight = req.body.approximatewaight;
-    const description = req.body.description;
 
 
     const newform = new Requestform({
         name,
         Contactnumber,
         address,
-        Categoryname,
-        SubCategoryname,
-        approximatewaight,description
+        approximatewaight
     })
     newform.save().then(() => {
         res.json("form added")
@@ -51,17 +46,14 @@ router.route("/").get((req, res) => {
 router.route("/update/:id").put(async(req, res) => {
     let formid = req.params.id;
 
-    const { name, Contactnumber, address, Categoryname,
-        SubCategoryname, approximatewaight,description } = req.body;
+    const { name, Contactnumber, address, approximatewaight } = req.body;
 
 
     const updateform = {
         name,
         Contactnumber,
         address,
-        Categoryname,
-        SubCategoryname,
-        approximatewaight,description
+        approximatewaight
     }
     const update = await Requestform.findByIdAndUpdate(formid, updateform).then(() => {
         res.status(200).send({ status: "form updated", user: update })
