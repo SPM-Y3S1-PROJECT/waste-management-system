@@ -12,6 +12,10 @@ import ViewShowroom from './components/ViewShowroom';
 import ShowroomAdmin from './components/ShowroomAdmin';
 import ContactDelete from './components/ContactDelete';
 import UpdateShowroom from './components/UpdateShowroom';
+//chathi
+import CollectItem from './components/collectItem';
+import ViewAllCollect from './components/viewAllCollect';
+import ViewAllRequest from './components/viewAllRequest'
 
 
 
@@ -43,6 +47,12 @@ function App() {
           <Route path="/delete/:id" element={<ContactDelete/>} />
           
           <Route path="/updateshow/:id" element={<UpdateShowroom/>} />
+
+
+          <Route path="/addcollectitem" element={<CollectItem/>} />
+        <Route path="/viewcollectitem" element={<ViewAllCollect/>} />
+        <Route path="/req" element={<ViewAllRequest/>} />
+
 
           
           
