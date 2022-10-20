@@ -2,6 +2,8 @@ const router = require("express").Router();
 let Contactus = require("../models/Contactus");
 
 router.route("/add").post((req,res)=>{
+   // res.json("contact us record Added"+JSON.stringify(req.body));
+     console.log("data "+JSON.stringify(req.body));
     const cname= req.body.cname;                                              //end points
     const email=req.body.email;
     const contact = Number(req.body.contact);
@@ -14,8 +16,6 @@ router.route("/add").post((req,res)=>{
         message
         
     })
-
-
     newContactus.save().then(()=>{
         res.json("contact us record Added")
     }).catch((err)=>{
@@ -25,7 +25,7 @@ router.route("/add").post((req,res)=>{
 
 
 //view all
-//http:localhost:8070/ wage data display krnna  //get methode eka use kle
+//http:localhost:9090/ wage data display krnna  //get methode eka use kle
 router.route("/").get((req,res)=>{
 
       //uda hdpu const variable eka //me arrow function name eka api kmthi nmk
@@ -40,9 +40,8 @@ router.route("/").get((req,res)=>{
 })
 
 
-
 //update                                  //passwena id eka
-//http://localhost:8070/contactus/update/fdgtrtytrdfg wage  ena tika id eka widihta gnna : oni hode eka gnna //put ma oni na post ekenuth puluwn
+//http://localhost:9090/contactus/update/fdgtrtytrdfg wage  ena tika id eka widihta gnna : oni hode eka gnna //put ma oni na post ekenuth puluwn
 
 router.route("/update/:cid").put(async(req,res)=>{
 
